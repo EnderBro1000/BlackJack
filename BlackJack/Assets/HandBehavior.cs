@@ -13,14 +13,14 @@ public class HandBehavior : MonoBehaviour
 
 
 
-    private bool IsBust()
+    private int CountTotal()
     {
         int total = 0;
         foreach(int card in hand)
         {
             total += card;
         }
-        return (total > 21);
+        return total;
     }
 
     private int NewCard()
@@ -48,6 +48,11 @@ public class HandBehavior : MonoBehaviour
         NewHand();
 
         Draw(2);
+
+        int total = CountTotal();
+
+        if (total > 21) { /* bust */ }
+        if (total == 21) { /* win */ }
 
     }
 
